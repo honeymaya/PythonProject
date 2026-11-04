@@ -32,3 +32,7 @@ def open_login_page(base_url, driver, wait, locators):
     driver.get(base_url)
     wait.until(EC.visibility_of_element_located(locators["login_username_input"]))
     return driver
+
+@pytest.fixture
+def correct_credentials():
+    return {"username": "standard_user", "password": "secret_sauce"}
