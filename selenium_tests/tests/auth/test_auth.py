@@ -12,7 +12,9 @@ def test_wrong_auth(open_login_page, wait, locators, wrong_credentials, base_url
     actualError = wait.until(EC.visibility_of_element_located(locators["login_error_message"]))
 
     # Сверяем ошибки авторизации
-    assert wrong_credentials["error"] in actualError.text
+    assert wrong_credentials["error"] in actualError.text, \
+        "Ожидалась другая ошибка входа!"
 
     # Убеждаемся, что никуда не вошли
-    assert driver.current_url == base_url + "/"
+    assert driver.current_url == base_url + "/", \
+        "URL адрес был изменен после неудачной авторизации по неизвестной причине!"

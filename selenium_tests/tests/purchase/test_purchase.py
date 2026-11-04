@@ -40,9 +40,11 @@ def test_purchase(open_login_page, wait, locators, correct_credentials, checkout
 
     expectedMsg = "Thank you for your order!"
     
-    assert expectedMsg in complete_header.text
+    assert expectedMsg in complete_header.text, \
+        "Сообщение об успешном оформлении заказа отличается от ожидаемого"
 
     # Проверяем, что пользователь вернулся на страницу выбора товаров при нажатии на кнопку
     driver.find_element(*locators["checkout_back_to_products"]).click()
     wait.until(EC.url_changes)
-    assert driver.current_url == base_url + "/inventory.html"
+    assert driver.current_url == base_url + "/inventory.html", \
+        "Пользователь должен был вернуться на страницу выбора товаров при нажатии на кнопку"

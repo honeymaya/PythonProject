@@ -26,12 +26,16 @@ def test_clean_cart(open_login_page, wait, locators, correct_credentials, base_u
         btn.click()
 
     # Проверяем наличие счетчика корзины
-    wait.until(EC.invisibility_of_element_located(locators["cart_badge"]))
+    wait.until(EC.invisibility_of_element_located(locators["cart_badge"]), 
+               "Значок корзины не должен отображаться, когда корзина пуста, но он отображается")
+        
 
     # Значок корзины не должен отображаться, когда корзина пуста
-    assert driver.find_elements(*locators["cart_badge"]) == []
+    assert driver.find_elements(*locators["cart_badge"]) == [], \
+        "Значок корзины не должен отображаться, когда корзина пуста, но он отображается"
 
     # Проверяем, что пользователь вернулся на страницу выбора товаров при нажатии на кнопку
     driver.find_element(*locators["cart_continue_shopping"]).click()
     wait.until(EC.url_changes)
-    assert driver.current_url == base_url + "/inventory.html"
+    assert driver.current_url == base_url + "/inventory.html", \
+        "Пользователь должен был вернуться на страницу выбора товаров при нажатии на кнопку"
