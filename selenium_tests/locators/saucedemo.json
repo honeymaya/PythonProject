@@ -2,6 +2,7 @@
     "login_username_input":      {"id": "user-name"},
     "login_password_input":      {"id": "password"},
     "login_button":              {"id": "login-button"},
+    "login_error_message":       {"css": "h3[data-test='error']"},
 
     "add_to_cart_btn":           {"class": "btn_inventory"},
     "cart_link":                 {"css": "a.shopping_cart_link"},
