@@ -13,16 +13,30 @@
 
 В каталоге `selenium_tests` - тесты с использованием Selenium, дополнительно внутри должны быть подпапки `tests` для фикстур и тестов и `locators` для локаторов элементов.
 
-Для запуска тестов необходимо установить pip пакеты `pytest` и `selenium`.
+Для запуска тестов необходимо установить pip пакеты `pytest`, `selenium`, `allure-pytest`.
 
 Например (Для Windows):
 
 ```
-.\.venv\Scripts\python.exe -m pip install pytest selenium
+.\.venv\Scripts\python.exe -m pip install pytest selenium allure-pytest
 ```
+
+Также отдельно нужно установить программу `allure`.
 
 После этого можно запускать тесты:
 
 ```
-pytest selenium_tests
+pytest --alluredir=allure-results 
+```
+
+Теперь генерируется отчёт `allure`:
+
+```
+allure generate allure-results --clean -o allure-report
+```
+
+И открыть отчёт можно так:
+
+```
+allure open allure-report 
 ```
