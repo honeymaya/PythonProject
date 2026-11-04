@@ -9,11 +9,14 @@
 
     "cart_badge":                {"css": "span.shopping_cart_badge"},
     "cart_remove_btn":           {"xpath": "//button[text()='Remove']"},
+    "cart_continue_shopping":    {"id": "continue-shopping"},
 
+    "checkout_btn":              {"id": "checkout"},
     "checkout_firstname_input":  {"id": "first-name"},
     "checkout_lastname_input":   {"id": "last-name"},
     "checkout_postalcode_input": {"id": "postal-code"},
     "checkout_continue_btn":     {"id": "continue"},
     "checkout_finish_btn":       {"id": "finish"},
-    "checkout_complete_header":  {"xpath": "//div[@id='checkout_complete_container']/h2"}
+    "checkout_complete_header":  {"xpath": "//div[@id='checkout_complete_container']/h2"},
+    "checkout_back_to_products": {"id": "back-to-products"}
 }
